@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="build">
+	<path id="build.classpath">
+		<pathelement location="classes"/>
+	</path>
+	<target name="init">
+		<mkdir dir="classes"/>
+	</target>
+	<target name="clean">
+		<delete dir="classes"/>
+	</target>
+	<target depends="init" name="build">
+		<javac srcdir="." destdir="classes" source="1.5" target="1.5" fork="yes">
+			<classpath refid="build.classpath"/>
+			<include name="ECorpsMetier.java"/>
+			<include name="Terrassement.java"/>
+			<include name="Dallage.java"/>
+			<include name="Menuiserie.java"/>
+			<include name="Fondation.java"/>
+			<include name="Maconnerie.java"/>
+			<include name="Platerie.java"/>
+			<include name="Electricite.java"/>
+			<include name="Reseau.java"/>
+			<include name="Peinture.java"/>
+			<include name="ECharpente.java"/>
+			<include name="Charpente.java"/>
+			<include name="Lot.java"/>
+			<include name="ETitre.java"/>
+			<include name="Acteur.java"/>
+			<include name="Entreprise.java"/>
+			<include name="Adresse.java"/>
+			<include name="ETypeAppart.java"/>
+			<include name="Appartement.java"/>
+			<include name="Immeuble.java"/>
+			<include name="Maison.java"/>
+			<include name="Lotissement.java"/>
+			<include name="Projet.java"/>
+			<include name="EEtatScolaire.java"/>
+			<include name="EtablissementScolaire.java"/>
+			<include name="Hopital.java"/>
+			<include name="BatimentPublic.java"/>
+			<include name="Musee.java"/>
+			<include name="EStatut.java"/>
+		</javac>
+	</target>
+</project>

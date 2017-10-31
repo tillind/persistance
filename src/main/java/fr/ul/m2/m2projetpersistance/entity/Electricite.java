@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 
 @Entity
 public class Electricite extends Lot implements Serializable {
+    	private String nbTableau;
+	private String longueurCable;
 
     /**
      * @return the nbTableau
@@ -34,6 +36,4 @@ public class Electricite extends Lot implements Serializable {
     public void setLongueurCable(String longueurCable) {
         this.longueurCable = longueurCable;
     }
-	private String nbTableau;
-	private String longueurCable;
 }

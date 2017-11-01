@@ -1,5 +1,6 @@
 package fr.ul.m2.m2projetpersistance.entity;
 
+import fr.ul.m2.m2projetpersistance.parameter.ETypeAppart;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -32,6 +33,17 @@ public class Immeuble extends Projet implements Serializable {
      */
     public void setNbNiveaux(String nbNiveaux) {
         this.nbNiveaux = nbNiveaux;
+    }
+
+    public Immeuble createImmeuble() {
+        Immeuble i = new Immeuble();
+        i.setNbNiveaux("10");
+        i.setSurfaceTotal("5000");
+        for (int nbAppart = 0; nbAppart <= 10;) {
+            Appartement a = new Appartement(String.valueOf(nbAppart), "500", ETypeAppart.t4, i);
+        }
+        return i;
+
     }
     
     

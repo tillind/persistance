@@ -84,4 +84,13 @@ public class Appartement implements Serializable {
         this.immeuble = immeuble;
     }
 
+    public Appartement(String niveau, String surface, ETypeAppart type, Immeuble immeuble) {
+        this.niveau = niveau;
+        this.surface = surface;
+        this.type = type;
+        this.immeuble = immeuble;
+    }
+    
+    
+
 }

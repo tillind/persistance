@@ -100,5 +100,8 @@ public class Entreprise implements Serializable {
     public void setActeur(Set<Acteur> acteur) {
         this.acteur = acteur;
     }
+    public void addActeur(Acteur a){
+        this.acteur.add(a);
+    }
  
 }

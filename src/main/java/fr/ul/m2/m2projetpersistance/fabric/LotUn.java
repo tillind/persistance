@@ -5,12 +5,16 @@
  */
 package fr.ul.m2.m2projetpersistance.fabric;
 
+import fr.ul.m2.m2projetpersistance.entity.Acteur;
 import fr.ul.m2.m2projetpersistance.entity.Adresse;
+import fr.ul.m2.m2projetpersistance.entity.Appartement;
 import fr.ul.m2.m2projetpersistance.entity.Charpente;
 import fr.ul.m2.m2projetpersistance.entity.Dallage;
 import fr.ul.m2.m2projetpersistance.entity.Electricite;
 import fr.ul.m2.m2projetpersistance.entity.Entreprise;
 import fr.ul.m2.m2projetpersistance.entity.Fondation;
+import fr.ul.m2.m2projetpersistance.entity.Hopital;
+import fr.ul.m2.m2projetpersistance.entity.Immeuble;
 import fr.ul.m2.m2projetpersistance.entity.Lot;
 import fr.ul.m2.m2projetpersistance.entity.Lotissement;
 import fr.ul.m2.m2projetpersistance.entity.Maconnerie;
@@ -22,11 +26,13 @@ import fr.ul.m2.m2projetpersistance.entity.Reseau;
 import fr.ul.m2.m2projetpersistance.entity.Terrassement;
 import fr.ul.m2.m2projetpersistance.parameter.ECharpente;
 import fr.ul.m2.m2projetpersistance.parameter.ECorpsMetier;
+import fr.ul.m2.m2projetpersistance.parameter.ETypeAppart;
 import java.sql.Date;
 
 /**
  *
  * @author alex
+ * @author Arthur
  */
 public class LotUn {
 
@@ -48,6 +54,48 @@ public class LotUn {
         p.addLot(createPeinture(p));
         p.addLot(createCharpente(p));
 
+    }//OK
+
+    private void addProjetDeux() {
+        Immeuble p = new Immeuble();
+        p.setAvancement("terminer");
+        p.addLot(createTerrassement(p));
+        p.addLot(createDallage(p));
+        p.addLot(createMenuiserie(p));
+        p.addLot(createFondation(p));
+        p.addLot(createMaconnerie1(p));
+        p.addLot(createPlaterie(p));
+        p.addLot(createElectricite(p));
+        p.addLot(createReseau(p));
+        p.createImmeuble();
+
+    }//OK
+
+    private void addProjetTrois() {
+        Projet p = new Hopital();
+        p.setAvancement("terminer");
+        p.addLot(createTerrassement(p));
+        p.addLot(createDallage(p));
+        p.addLot(createMenuiserie(p));
+        p.addLot(createFondation(p));
+        p.addLot(createMaconnerie2(p));
+        p.addLot(createPlaterie(p));
+        p.addLot(createElectricite(p));
+        p.addLot(createReseau(p));
+        p.addLot(createPeinture(p));
+        p.addLot(createCharpente(p));
+    }//OK
+
+    private void addProjetQuatre() {
+        Hopital p = new Hopital();
+        p.setNbLIts("4000");
+        p.setNbServices("12");
+        p.setAvancement("terminer");
+        p.addLot(createTerrassement(p));
+        p.addLot(createDallage(p));
+        p.addLot(createMenuiserie(p));
+        p.addLot(createFondation(p));
+        p.addLot(createMaconnerie(p));
     }
 
     private Lot createTerrassement(Projet p) {
@@ -57,8 +105,10 @@ public class LotUn {
         a.setVille("Paris");
         a.setcP("75000");
 
+        Acteur ac = new Acteur();
+        ac.setNom("Caradas Gardner");
         Entreprise e = new Entreprise();
-        e.setActeur(null);////////////////////////////////////////////////////////////
+        e.addActeur(ac);
         e.setCorpsMetier(ECorpsMetier.macon);
         e.setNom("Fondation générale");
         e.setNumTel("0387596412");
@@ -87,8 +137,10 @@ public class LotUn {
         a.setVille("Nancy");
         a.setcP("54000");
 
+        Acteur ac = new Acteur();
+        ac.setNom("Habaccuc Rumble");
         Entreprise e = new Entreprise();
-        e.setActeur(null);////////////////////////////////////////////////////////////
+        e.addActeur(ac);
         e.setCorpsMetier(ECorpsMetier.carreleur);
         e.setNom("La dalle");
         e.setNumTel("0387596412");
@@ -115,8 +167,10 @@ public class LotUn {
         a.setVille("Nancy");
         a.setcP("54000");
 
+        Acteur ac = new Acteur();
+        ac.setNom("Ronald van der Wal");
         Entreprise e = new Entreprise();
-        e.setActeur(null);////////////////////////////////////////////////////////////
+        e.addActeur(ac);
         e.setCorpsMetier(ECorpsMetier.menuisier);
         e.setNom("Menuiserie de france");
         e.setNumTel("0387596412");
@@ -145,8 +199,10 @@ public class LotUn {
         a.setVille("Pekin");
         a.setcP("11111");
 
+        Acteur ac = new Acteur();
+        ac.setNom("Juli van Sommeren");
         Entreprise e = new Entreprise();
-        e.setActeur(null);
+        e.addActeur(ac);
         e.setCorpsMetier(ECorpsMetier.macon);
         e.setNom("Macon de France");
         e.setNumTel("132486510");
@@ -172,8 +228,77 @@ public class LotUn {
         a.setVille("Lyon");
         a.setcP("69000");
 
+        Acteur ac = new Acteur();
+        ac.setNom("Tim Baartman");
         Entreprise e = new Entreprise();
-        e.setActeur(null);
+        e.addActeur(ac);
+        e.setCorpsMetier(ECorpsMetier.macon);
+        e.setNom("Macon de France");
+        e.setNumTel("132486510");
+        e.setAdresse(a);
+
+        Maconnerie m = new Maconnerie();
+        m.setSurfaceMur("2");
+        m.setNbPoteaux("9");
+
+        m.setDateDebut(Date.valueOf("18/01/2016"));
+        m.setDureeEstime("15");
+        m.setCoutEstime("1000");
+        m.setAvancement("terminer");
+        m.setCoutReel("12000");
+        m.setDateFinReel(Date.valueOf("18/05/2017"));
+        m.addEntRealise(e);
+        m.setProjet(p);
+
+        return m;
+    }
+
+    public Lot createMaconnerie1(Projet p) {
+        Adresse a = new Adresse();
+        a.setNumero("8");
+        a.setRue("rue du poisson");
+        a.setVille("Monaco");
+        a.setcP("Monaco");
+
+        Acteur ac = new Acteur();
+        ac.setNom("Liedeke Beijers");
+        Entreprise e = new Entreprise();
+        e.addActeur(ac);
+        e.setCorpsMetier(ECorpsMetier.macon);
+        e.setNom("Macon de France");
+        e.setNumTel("132486510");
+        e.setAdresse(a);
+
+        Maconnerie m = new Maconnerie();
+        m.setSurfaceMur("2");
+        m.setNbPoteaux("9");
+
+        m.setDateDebut(Date.valueOf("18/01/2016"));
+        m.setDureeEstime("15");
+        m.setCoutEstime("1000");
+        m.setAvancement("terminer");
+        m.setCoutReel("12000");
+        m.setDateFinReel(Date.valueOf("18/05/2017"));
+        m.addEntRealise(e);
+        m.setProjet(p);
+
+        return m;
+    }
+
+    public Lot createMaconnerie2(Projet p) {
+        Adresse a = new Adresse();
+        a.setNumero("8");
+        a.setRue("rue du poisson");
+        a.setVille("Monaco");
+        a.setcP("Monaco");
+
+        Acteur ac = new Acteur();
+        Acteur ac1 = new Acteur();
+        ac.setNom("Liedeke Beijers");
+        ac1.setNom("Cüneyt Vels");
+        Entreprise e = new Entreprise();
+        e.addActeur(ac);
+        e.addActeur(ac1);
         e.setCorpsMetier(ECorpsMetier.macon);
         e.setNom("Macon de France");
         e.setNumTel("132486510");
@@ -202,8 +327,10 @@ public class LotUn {
         a.setVille("Niort");
         a.setcP("79000");
 
+        Acteur ac = new Acteur();
+        ac.setNom("Fabianne Haverkamp");
         Entreprise e = new Entreprise();
-        e.setActeur(null);
+        e.addActeur(ac);
         e.setCorpsMetier(ECorpsMetier.platrier);
         e.setNom("Platrier de France");
         e.setNumTel("1234895");
@@ -232,8 +359,10 @@ public class LotUn {
         a.setVille("Nancy");
         a.setcP("54000");
 
+        Acteur ac = new Acteur();
+        ac.setNom("Joos Bos");
         Entreprise e = new Entreprise();
-        e.setActeur(null);
+        e.addActeur(ac);
         e.setCorpsMetier(ECorpsMetier.electricien);
         e.setNom("Electricien de France");
         e.setNumTel("465123");
@@ -262,8 +391,10 @@ public class LotUn {
         a.setVille("la Rochelle");
         a.setcP("17000");
 
+        Acteur ac = new Acteur();
+        ac.setNom("Felix Baumgaertner");
         Entreprise e = new Entreprise();
-        e.setActeur(null);
+        e.addActeur(ac);
         e.setCorpsMetier(ECorpsMetier.electricien);
         e.setNom("Electricien de France");
         e.setNumTel("465123");
@@ -291,8 +422,10 @@ public class LotUn {
         a.setVille("Paris");
         a.setcP("75000");
 
+        Acteur ac = new Acteur();
+        ac.setNom("Michael Rothstein");
         Entreprise e = new Entreprise();
-        e.setActeur(null);
+        e.addActeur(ac);
         e.setCorpsMetier(ECorpsMetier.peintre);
         e.setNom("Peintre de France");
         e.setNumTel("1637815");
@@ -320,8 +453,10 @@ public class LotUn {
         a.setVille("Venise");
         a.setcP("Italie");
 
+        Acteur ac = new Acteur();
+        ac.setNom("Jonas Bader");
         Entreprise e = new Entreprise();
-        e.setActeur(null);
+        e.addActeur(ac);
         e.setCorpsMetier(ECorpsMetier.peintre);
         e.setNom("Peintre de France");
         e.setNumTel("1637815");
@@ -329,7 +464,7 @@ public class LotUn {
 
         Charpente c = new Charpente();
         c.setTypeCharpente(ECharpente.traditionnelle);
-        
+
         c.setDateDebut(Date.valueOf("02/12/1994"));
         c.setDureeEstime("24");
         c.setCoutEstime("10500");
@@ -338,7 +473,7 @@ public class LotUn {
         c.setDateFinReel(Date.valueOf("18/05/1998"));
         c.addEntRealise(e);
         c.setProjet(p);
-        
+
         return c;
 
     }

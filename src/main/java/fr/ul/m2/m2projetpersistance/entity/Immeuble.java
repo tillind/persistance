@@ -35,12 +35,12 @@ public class Immeuble extends Projet implements Serializable {
         this.nbNiveaux = nbNiveaux;
     }
 
-    public Immeuble createImmeuble() {
+    public Immeuble createImmeuble(int nbLvl, ETypeAppart typeAppart) {
         Immeuble i = new Immeuble();
         i.setNbNiveaux("10");
         i.setSurfaceTotal("5000");
-        for (int nbAppart = 0; nbAppart <= 10;) {
-            Appartement a = new Appartement(String.valueOf(nbAppart), "500", ETypeAppart.t4, i);
+        for (int nbAppart = 0; nbAppart <= nbLvl;) {
+            Appartement a = new Appartement(String.valueOf(nbAppart), "500", typeAppart, i);
         }
         return i;
 

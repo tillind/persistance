@@ -67,7 +67,7 @@ public class LotUn {
         p.addLot(createPlaterie(p));
         p.addLot(createElectricite(p));
         p.addLot(createReseau(p));
-        p.createImmeuble();
+        p.createImmeuble(10,ETypeAppart.t4);
 
     }//OK
 

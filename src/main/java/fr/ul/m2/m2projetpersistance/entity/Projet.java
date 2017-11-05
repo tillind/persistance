@@ -10,9 +10,34 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
+@NamedQueries({
+    @NamedQuery(
+        name = "Projet.enCours",
+        query = "SELECT p FROM Projet p WHERE p.termine = false"),
+    @NamedQuery(
+        name = "Projet.avancementPlot12",
+        query = "SELECT p.avancement FROM Projet p WHERE p.ref = 'Plot12'"),
+    @NamedQuery(
+        name = "Projet.acteurDeGeneralBatiment",
+        query = "SELECT a FROM Projet p JOIN Acteur a JOIN Entreprise e WHERE p.termine = true AND e.nom = 'General Batiment'"),
+    @NamedQuery(
+        name = "Projet.entrepriseDePlot12",
+        query = "SELECT a , e FROM Projet p JOIN Acteur a JOIN Entreprise e  WHERE p.ref = 'Plot12'"),
+    @NamedQuery(
+        name = "Projet.nbLotProjetPlot12",
+        query = "SELECT COUNT(p.lot) FROM Projet p WHERE p.ref= 'Plot12' "),
+    @NamedQuery(
+        name = "Projet.coutTotalPlot12",
+        query = "SELECT p.coutTotalEstime FROM Projet p WHERE p.ref = 'Plot12' "),
+    @NamedQuery(
+        name = "Projet.avancementLotPlot12",
+        query = "SELECT l.avancement FROM Projet p JOIN Lot l WHERE p.ref = 'Plot12' ")
+})
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Projet implements Serializable {

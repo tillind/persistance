@@ -10,8 +10,23 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+
+@NamedQueries({
+    @NamedQuery(
+        name = "Entreprise.findEnt",
+        query = "Select e FROM Entreprise e "),
+    @NamedQuery(
+        name = "Entreprise.nbPlombier",
+        query = "SELECT e FROM Entreprise e WHERE e.corpsMetier = 'Plombier'"),
+    @NamedQuery(
+        name = "Entreprise.contactsGeneralBatiment",
+        query = "SELECT a FROM Entreprise e JOIN Acteur a WHERE e.nom =  'general Batiment'"),
+})
 @Entity
 public class Entreprise implements Serializable {
    @Id

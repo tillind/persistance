@@ -5,6 +5,7 @@
  */
 package fr.ul.m2.m2projetpersistance.launch;
 
+import fr.ul.m2.m2projetpersistance.fabric.LotDeux;
 import fr.ul.m2.m2projetpersistance.fabric.LotUn;
 
 /**
@@ -16,5 +17,7 @@ public class launch {
     public static void main(String[] args) {
         LotUn lot = new LotUn();
         lot.createProjectEnded();
+        LotDeux lot2 = new LotDeux();
+        lot2.createRunningProject();
     }
 }

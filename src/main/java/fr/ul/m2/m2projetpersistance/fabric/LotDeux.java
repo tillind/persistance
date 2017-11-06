@@ -28,39 +28,52 @@ import fr.ul.m2.m2projetpersistance.parameter.ECorpsMetier;
 import fr.ul.m2.m2projetpersistance.parameter.EEtatScolaire;
 import fr.ul.m2.m2projetpersistance.parameter.ETypeAppart;
 import java.sql.Date;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
  * @author Arthur
  */
 public class LotDeux {
+    EtablissementScolaire es;
+    Immeuble i;
+    Musee m;
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
+    EntityManager em = emf.createEntityManager();
 
-    public void createProject() {
-
+    public void createRunningProject() {
+        addProjetUn();
+        addProjetDeux();
+        addProjetTrois();
+        em.persist(es);
+        em.persist(i);
+        em.persist(m);
     }
 
     private void addProjetUn() {
-        EtablissementScolaire p = new EtablissementScolaire();
-        p.setNbEleves("72");
-        p.setCategorie(EEtatScolaire.primaire);
+        EtablissementScolaire es = new EtablissementScolaire();
+        es.setNbEleves("72");
+        es.setCategorie(EEtatScolaire.primaire);
 
     }
 
     private void addProjetDeux() {
-        Immeuble p = new Immeuble();
-        p.createImmeuble(8, ETypeAppart.studio);
-        p.addLot(createTerrassement(p));
-        p.addLot(createDallage(p));
-        p.addLot(createMenuiserie(p));
-        p.addLot(createFondation(p));
-        p.addLot(createMaconnerie(p));
-        p.addLot(createPeinture(p));
-        p.addLot(createCharpente(p));
+        Immeuble i = new Immeuble();
+        i.createImmeuble(8, ETypeAppart.studio);
+        i.addLot(createTerrassement(i));
+        i.addLot(createDallage(i));
+        i.addLot(createMenuiserie(i));
+        i.addLot(createFondation(i));
+        i.addLot(createMaconnerie(i));
+        i.addLot(createPeinture(i));
+        i.addLot(createCharpente(i));
     }
 
     private void addProjetTrois() {
-        Musee p = new Musee();
-        p.setNbSalles("23");
+        Musee m = new Musee();
+        m.setNbSalles("23");
     }
 
     private Lot createTerrassement(Projet p) {

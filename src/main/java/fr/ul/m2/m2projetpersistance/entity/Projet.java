@@ -74,16 +74,15 @@ public abstract class Projet implements Serializable {
     @OneToOne
     private Adresse adresse;
 
-    @OneToMany(mappedBy = "projet")
+    @OneToMany
     private Set<Lot> lot = new HashSet<Lot>();
 
     public Projet() {
         this.adresse = new Adresse();
-        this.adresse.setLoc(this);
     }
 
     public void addLot(Lot l) {
-        l.setProjet(this);
+   
         lot.add(l);
     }
 

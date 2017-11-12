@@ -37,14 +37,13 @@ public class Entreprise implements Serializable {
     @OneToOne
     private Adresse adresse;
 
-   // @ManyToOne(fetch=FetchType.EAGER)
    
     @OneToMany(mappedBy = "entreprise")
     private Set<Acteur> acteur = new HashSet<Acteur>();
     
     public Entreprise(){
         this.adresse = new Adresse();
-        this.adresse.setEnt(this);
+
     }
     /**
      * @return the nom

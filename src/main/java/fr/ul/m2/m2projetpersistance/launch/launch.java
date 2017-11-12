@@ -18,6 +18,6 @@ public class launch {
         LotUn lot = new LotUn();
         lot.createProjectEnded();
         LotDeux lot2 = new LotDeux();
-        lot2.createRunningProject();
+        lot2.createProjectEnded();
     }
 }

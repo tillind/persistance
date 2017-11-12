@@ -18,12 +18,6 @@ public class Adresse implements Serializable {
 	private String cP;
 	private String ville;
         
-    @OneToOne
-    @JoinColumn(nullable = true)
-        private Entreprise ent;
-    @OneToOne
-    @JoinColumn(nullable = true)
-        private Projet loc;
 
     /**
      * @return the id
@@ -88,31 +82,5 @@ public class Adresse implements Serializable {
         this.ville = ville;
     }
 
-    /**
-     * @return the ent
-     */
-    public Entreprise getEnt() {
-        return ent;
-    }
 
-    /**
-     * @param ent the ent to set
-     */
-    public void setEnt(Entreprise ent) {
-        this.ent = ent;
-    }
-
-    /**
-     * @return the loc
-     */
-    public Projet getLoc() {
-        return loc;
-    }
-
-    /**
-     * @param loc the loc to set
-     */
-    public void setLoc(Projet loc) {
-        this.loc = loc;
-    }
 }

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -21,28 +22,27 @@ public abstract class Lot implements Serializable {
 
     @Id
     private final String id = UUID.randomUUID().toString();
-        @Temporal(javax.persistence.TemporalType.DATE)
-	private Date dateDebut;
-	private String dureeEstime;
-	private String coutEstime;
-	private String avancement;
-	private String coutReel;
-        @Temporal(javax.persistence.TemporalType.DATE)
-	private Date dateFinReel;
-        
-        @OneToOne
-	private Entreprise responsable;
-        @OneToMany
-	private Set<Entreprise> realise = new HashSet<Entreprise>();
-        
-        @ManyToOne
-        @JoinColumn(name="ref")
-	private Projet projet;
+    
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dateDebut;
+    private String dureeEstime;
+    private String coutEstime;
+    private String avancement;
+    private String coutReel;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dateFinReel;
 
-        public void addEntRealise(Entreprise e)
-        {
-            realise.add(e);
-        }
+    @ManyToOne
+    private Entreprise responsable;
+    @ManyToMany
+    private Set<Entreprise> realise = new HashSet<Entreprise>();
+
+    public void addEntRealise(Entreprise e)
+    {
+        realise.add(e);
+    }
+        
+        
     /**
      * @return the id
      */
@@ -161,18 +161,8 @@ public abstract class Lot implements Serializable {
     public void setRealise(Set<Entreprise> realise) {
         this.realise = realise;
     }
-
-    /**
-     * @return the projet
-     */
-    public Projet getProjet() {
-        return projet;
-    }
-
-    /**
-     * @param projet the projet to set
-     */
-    public void setProjet(Projet projet) {
-        this.projet = projet;
+    
+    public void addRealise(Entreprise e){
+        this.realise.add(e);
     }
 }

@@ -17,30 +17,24 @@ public class launch {
     
     public static void main(String[] args) {
         LotUn lot = new LotUn();
-     // lot.createProjectEnded();
+      //lot.createProjectEnded();
         LotDeux lot2 = new LotDeux();
-      //  lot2.createProjectEnded();
+     //  lot2.createProjectEnded();
         
         Requete req = new Requete();
-      //req.requeteUn();
-       //req.requeteDeux();
-       // req.requeteTrois();
-       // req.requeteQuatre();
-       
-        //req.requeteCinque();
-      //   req.requeteSix();
-       // req.requeteSept();
-      // req.requeteHuigt();
-       //req.requeteNeuf();
-       
-     //   req.requeteDix();
-      //  req.requeteOnze();
-      
-       // req.requeteDouze();
-        
-      // req.requeteTreize();
-      
-      
-      req.requeteQuatorze();
+        req.requeteUn();
+        req.requeteDeux();
+        req.requeteTrois();
+        req.requeteQuatre();
+        req.requeteCinque();
+        req.requeteSix();
+        req.requeteSept();
+        req.requeteHuigt();
+        req.requeteNeuf();
+        req.requeteDix();
+        req.requeteOnze();
+        req.requeteDouze(); 
+        req.requeteTreize();
+        req.requeteQuatorze();
     }
 }

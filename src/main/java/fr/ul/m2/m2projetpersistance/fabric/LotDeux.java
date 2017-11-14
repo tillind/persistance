@@ -65,6 +65,7 @@ public class LotDeux {
         eTerrasement.setNom("ElFondation");
         eTerrasement.setNumTel("0387596412");
         eTerrasement.setAdresse(a);
+        ac.setEntreprise(eTerrasement);
         em.persist(a);
         em.persist(ac);
         em.persist(eTerrasement);
@@ -85,6 +86,7 @@ public class LotDeux {
         eDallage.setNom("Dallage Xtreme");
         eDallage.setNumTel("0387596412");
         eDallage.setAdresse(a);
+        ac.setEntreprise(eDallage);
         em.persist(a);
         em.persist(ac);
         em.persist(eDallage);
@@ -105,6 +107,7 @@ public class LotDeux {
         eMenuiserie.setNom("Meunier");
         eMenuiserie.setNumTel("0387596412");
         eMenuiserie.setAdresse(a);
+        ac.setEntreprise(eMenuiserie);
         em.persist(a);
         em.persist(ac);
         em.persist(eMenuiserie);
@@ -125,6 +128,7 @@ public class LotDeux {
         eFondation.setNom("Macon pas trés francais");
         eFondation.setNumTel("132486510");
         eFondation.setAdresse(a);
+        ac.setEntreprise(eFondation);
         em.persist(a);
         em.persist(ac);
         em.persist(eFondation);
@@ -145,6 +149,7 @@ public class LotDeux {
         eMaconnerie.setNom("Ze'Macon");
         eMaconnerie.setNumTel("132486510");
         eMaconnerie.setAdresse(a);
+        ac.setEntreprise(eMaconnerie);
         em.persist(a);
         em.persist(ac);
         em.persist(eMaconnerie);
@@ -165,6 +170,7 @@ public class LotDeux {
         ePlaterie.setNom("Macon à macon");
         ePlaterie.setNumTel("132486510");
         ePlaterie.setAdresse(a);
+        ac.setEntreprise(ePlaterie);
         em.persist(a);
         em.persist(ac);
         em.persist(ePlaterie);
@@ -185,6 +191,7 @@ public class LotDeux {
         ePlaterie.setNom("La Platreri");
         ePlaterie.setNumTel("1234895");
         ePlaterie.setAdresse(a);
+        ac.setEntreprise(ePlaterie);
         em.persist(a);
         em.persist(ac);
         em.persist(ePlaterie);
@@ -205,6 +212,7 @@ public class LotDeux {
         eElectricite.setNom("Electrichien");
         eElectricite.setNumTel("465123");
         eElectricite.setAdresse(a);
+        ac.setEntreprise(eElectricite);
         em.persist(a);
         em.persist(ac);
         em.persist(eElectricite);
@@ -225,6 +233,7 @@ public class LotDeux {
         eReseau.setNom("Nancycité");
         eReseau.setNumTel("465123");
         eReseau.setAdresse(a);
+        ac.setEntreprise(eReseau);
         em.persist(a);
         em.persist(ac);
         em.persist(eReseau);
@@ -245,6 +254,7 @@ public class LotDeux {
         ePeinture.setNom("Peintre est mon métier");
         ePeinture.setNumTel("1637815");
         ePeinture.setAdresse(a);
+        ac.setEntreprise(ePeinture);
         em.persist(a);
         em.persist(ac);
         em.persist(ePeinture);
@@ -265,6 +275,7 @@ public class LotDeux {
         eCharpente.setNom("Charpentrier");
         eCharpente.setNumTel("1637815");
         eCharpente.setAdresse(a);
+        ac.setEntreprise(eCharpente);
         em.persist(a);
         em.persist(ac);
         em.persist(eCharpente);

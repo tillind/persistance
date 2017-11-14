@@ -65,6 +65,7 @@ public class LotUn {
         eTerrasement.setNom("Fondation du monde");
         eTerrasement.setNumTel("0387596412");
         eTerrasement.setAdresse(a);
+        ac.setEntreprise(eTerrasement);
         em.persist(a);
         em.persist(ac);
         em.persist(eTerrasement);
@@ -85,6 +86,7 @@ public class LotUn {
         eDallage.setNom("La dalle");
         eDallage.setNumTel("0387596412");
         eDallage.setAdresse(a);
+        ac.setEntreprise(eDallage);
         em.persist(a);
         em.persist(ac);
         em.persist(eDallage);
@@ -105,6 +107,7 @@ public class LotUn {
         eMenuiserie.setNom("Menuiserie de france");
         eMenuiserie.setNumTel("0387596412");
         eMenuiserie.setAdresse(a);
+        ac.setEntreprise(eMenuiserie);
         em.persist(a);
         em.persist(ac);
         em.persist(eMenuiserie);
@@ -146,6 +149,7 @@ public class LotUn {
         eMaconnerie.setNom("Maconnerie generale");
         eMaconnerie.setNumTel("132486510");
         eMaconnerie.setAdresse(a);
+        ac.setEntreprise(eMaconnerie);
         em.persist(a);
         em.persist(ac);
         em.persist(eMaconnerie);
@@ -166,6 +170,7 @@ public class LotUn {
         ePlaterie.setNom("Macon de moselle");
         ePlaterie.setNumTel("132486510");
         ePlaterie.setAdresse(a);
+        ac.setEntreprise(ePlaterie);
         em.persist(a);
         em.persist(ac);
         em.persist(ePlaterie);
@@ -186,6 +191,7 @@ public class LotUn {
         ePlaterie.setNom("Platrier de France");
         ePlaterie.setNumTel("1234895");
         ePlaterie.setAdresse(a);
+        ac.setEntreprise(ePlaterie);
         em.persist(a);
         em.persist(ac);
         em.persist(ePlaterie);
@@ -206,6 +212,7 @@ public class LotUn {
         eElectricite.setNom("Electricien");
         eElectricite.setNumTel("465123");
         eElectricite.setAdresse(a);
+        ac.setEntreprise(eElectricite);
         em.persist(a);
         em.persist(ac);
         em.persist(eElectricite);
@@ -226,6 +233,7 @@ public class LotUn {
         eReseau.setNom("ElecMoselle");
         eReseau.setNumTel("465123");
         eReseau.setAdresse(a);
+        ac.setEntreprise(eReseau);
         em.persist(a);
         em.persist(ac);
         em.persist(eReseau);
@@ -246,6 +254,7 @@ public class LotUn {
         ePeinture.setNom("Peintre de la fench");
         ePeinture.setNumTel("1637815");
         ePeinture.setAdresse(a);
+        ac.setEntreprise(ePeinture);
         em.persist(a);
         em.persist(ac);
         em.persist(ePeinture);
@@ -266,6 +275,7 @@ public class LotUn {
         eCharpente.setNom("Peintre de France");
         eCharpente.setNumTel("1637815");
         eCharpente.setAdresse(a);
+        ac.setEntreprise(eCharpente);
         em.persist(a);
         em.persist(ac);
         em.persist(eCharpente);

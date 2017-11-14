@@ -8,7 +8,7 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
     @NamedQuery(
         name = "Musee.entMenuiserie",
-        query = "SELECT e FROM Musee m JOIN Entreprise e JOIN Acteur a WHERE e.corpsMetier ='Menuisier'")
+        query = "SELECT e FROM Musee m JOIN m.lot a JOIN a.realise e JOIN a.responsable r WHERE e.corpsMetier ='menuisier' OR r.corpsMetier ='menuisier' ")
 })
 @Entity
 public class Musee extends BatimentPublic {

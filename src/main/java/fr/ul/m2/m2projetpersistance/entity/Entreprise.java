@@ -4,6 +4,7 @@ import fr.ul.m2.m2projetpersistance.parameter.ECorpsMetier;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -22,10 +23,10 @@ import javax.persistence.OneToOne;
         query = "Select e FROM Entreprise e "),
     @NamedQuery(
         name = "Entreprise.nbPlombier",
-        query = "SELECT e FROM Entreprise e WHERE e.corpsMetier = 'Plombier'"),
+        query = "SELECT e FROM Entreprise e WHERE e.corpsMetier = 'plombier'"),
     @NamedQuery(
         name = "Entreprise.contactsGeneralBatiment",
-        query = "SELECT a FROM Entreprise e JOIN Acteur a WHERE e.nom =  'general Batiment'"),
+        query = "SELECT a FROM Entreprise e JOIN e.acteur a WHERE e.nom =  'General Batiment'"),
 })
 @Entity
 public class Entreprise implements Serializable {

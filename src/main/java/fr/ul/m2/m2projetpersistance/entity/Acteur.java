@@ -26,7 +26,9 @@ public class Acteur implements Serializable {
     private ETitre titre;
     @Enumerated(EnumType.STRING)
     private EStatut status;
-    @ManyToOne
+ 
+
+    @ManyToOne    
     private Entreprise entreprise;
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(

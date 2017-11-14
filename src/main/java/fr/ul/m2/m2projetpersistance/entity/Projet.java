@@ -23,35 +23,39 @@ import javax.persistence.Temporal;
     ,
     @NamedQuery(
             name = "Projet.avancementPlot12",
-            query = "SELECT p.avancement FROM Projet p WHERE p.ref = 'Plot12'")
+            query = "SELECT p.avancement FROM Projet p WHERE p.nom = 'Plot12'")
     ,
     @NamedQuery(
-            name = "Projet.acteurDeGeneralBatiment",
-            query = "SELECT a FROM Projet p JOIN Acteur a JOIN Entreprise e WHERE p.termine = true AND e.nom = 'General Batiment'")
+            name = "Projet.projetTerminerDeGeneralBatiment",
+            query = "SELECT p FROM Projet p JOIN p.acteur a JOIN a.entreprise e WHERE p.termine = true AND e.nom = 'General Batiment'")
+    ,
+    @NamedQuery(
+            name = "Projet.projetEnCoursDeGeneralBatiment",
+            query = "SELECT a FROM Projet p JOIN p.acteur a JOIN a.entreprise e WHERE p.termine = false AND e.nom = 'General Batiment'")
     ,
     @NamedQuery(
             name = "Projet.entrepriseDePlot12",
-            query = "SELECT a , e FROM Projet p JOIN Acteur a JOIN Entreprise e  WHERE p.ref = 'Plot12'")
+            query = "SELECT a , e FROM Projet p JOIN p.acteur a JOIN a.entreprise e  WHERE p.nom = 'Plot12'")
     ,
     @NamedQuery(
             name = "Projet.nbLotProjetPlot12",
-            query = "SELECT COUNT(p.lot) FROM Projet p WHERE p.ref= 'Plot12' ")
+            query = "SELECT COUNT(l.id) FROM Projet p JOIN p.lot l WHERE p.nom= 'Plot12' ")
     ,
     @NamedQuery(
             name = "Projet.coutTotalPlot12",
-            query = "SELECT p.coutTotalEstime FROM Projet p WHERE p.ref = 'Plot12' ")
+            query = "SELECT p.coutTotalEstime FROM Projet p WHERE p.nom = 'Plot12' ")
     ,
     @NamedQuery(
-            name = "Projet.avancementLotPlot12",
-            query = "SELECT l.avancement FROM Projet p JOIN Lot l WHERE p.ref = 'Plot12' ")
+            name = "Projet.lotEnCoursDeGeneralBatiment",
+            query = "SELECT l FROM Projet p JOIN p.lot l JOIN l.realise ra JOIN l.responsable re WHERE p.termine = false AND re.nom = 'General Batiment' OR ra.nom = 'General Batiment' ")
     ,
     @NamedQuery(
             name = "Projet.dureeEstimeProjetEnCours",
-            query = "SELECT l.dureeEstime FROM Projet p JOIN Lot l")
+            query = "SELECT l.dureeEstime FROM Projet p JOIN p.lot l WHERE p.termine = false")
     ,
-        @NamedQuery(
+    @NamedQuery(
             name = "Projet.avacementsTypeLots",
-            query = "SELECT l.avancement,e.nom FROM Projet p JOIN Lot l JOIN Entreprise e WHERE p.nom='Plot12'"
+            query = "SELECT l.avancement,e.nom FROM Projet p JOIN p.lot l JOIN l.responsable e WHERE p.nom='Plot12'"
     )
 })
 @Entity

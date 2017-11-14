@@ -122,9 +122,10 @@ public class LotUn {
         eFondation = new Entreprise();
         eFondation.addActeur(ac);
         eFondation.setCorpsMetier(ECorpsMetier.macon);
-        eFondation.setNom("MaconFrancais");
+        eFondation.setNom("General Batiment");
         eFondation.setNumTel("132486510");
         eFondation.setAdresse(a);
+        ac.setEntreprise(eFondation);
         em.persist(a);
         em.persist(ac);
         em.persist(eFondation);
@@ -161,7 +162,7 @@ public class LotUn {
         ac.setNom("Liedeke Beijers");
         ePlaterie = new Entreprise();
         ePlaterie.addActeur(ac);
-        ePlaterie.setCorpsMetier(ECorpsMetier.macon);
+        ePlaterie.setCorpsMetier(ECorpsMetier.plombier);
         ePlaterie.setNom("Macon de moselle");
         ePlaterie.setNumTel("132486510");
         ePlaterie.setAdresse(a);

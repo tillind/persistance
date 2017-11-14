@@ -1,0 +1,161 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fr.ul.m2.m2projetpersistance.requete;
+
+import fr.ul.m2.m2projetpersistance.entity.Acteur;
+import fr.ul.m2.m2projetpersistance.entity.Entreprise;
+import fr.ul.m2.m2projetpersistance.entity.Lot;
+import fr.ul.m2.m2projetpersistance.entity.Projet;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+/**
+ *
+ * @author alex
+ */
+public class Requete {
+    EntityManagerFactory emf ;
+    EntityManager em;
+    
+    public Requete(){
+       emf = Persistence.createEntityManagerFactory("test");
+       em = emf.createEntityManager(); 
+    }
+    
+    public void requeteDeux(){
+        /************ Requete Deux **************/
+        Query q1 = em.createNamedQuery("Projet.enCours");
+        List<Projet> lesBuv1 = q1.getResultList();
+        for ( Projet unBuv1 : lesBuv1) {
+            System.out.println("Projet : " + unBuv1.getNom());
+        }
+    }
+    
+     public void requeteTrois(){
+         /**************** requete trois ******************/
+        Query q1 = em.createNamedQuery("Projet.avancementPlot12");
+        String plot12 = (String) q1.getSingleResult();
+        System.out.println("Avancement Plot12 : " + plot12);
+    }
+    
+    public void requeteSept(){
+        /****************************** requete sept**********///
+        Query q1 = em.createNamedQuery("Projet.projetTerminerDeGeneralBatiment");
+        List<Projet> lesActeurs = q1.getResultList();
+        for ( Projet unActeur : lesActeurs) {
+            System.out.println("Acteur : " + unActeur.getNom());
+        }
+    }
+    /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    public void requeteNeuf(){
+        /******************** requete neuf *************************/
+        /********************p  assse pas*************/////////
+        Query q1 = em.createNamedQuery("Projet.entrepriseDePlot12");
+        List<Object[]> rs = q1.getResultList();
+        
+        rs.stream().forEach((result)->{
+          Acteur acteur = (Acteur) result[0];
+          Entreprise nom = (Entreprise) result[1];
+            System.out.println("Acteur: "+acteur.getNom()+" entreprise ->"+nom.getNom());
+        });
+    }
+    
+    public void requeteDix(){
+        /************************ requete dix**********************/
+        Query q1 = em.createNamedQuery("Projet.nbLotProjetPlot12");
+        Long nbLot = (Long) q1.getSingleResult();
+        System.out.println("Nombre de lot de Plot12 : " + nbLot);
+    }
+    
+
+    public void requeteOnze(){
+        /********************** requete onze ********************/
+        Query q1 = em.createNamedQuery("Projet.coutTotalPlot12");
+        String coutTotal = (String) q1.getSingleResult();
+        System.out.println("Cout total de Plot12 : " + coutTotal);
+    }
+    
+    public void requeteHuigt(){
+       /********** requete huight *****************/
+        Query q1 = em.createNamedQuery("Projet.lotEnCoursDeGeneralBatiment");
+        List<Lot> lesLots = q1.getResultList();
+        for ( Lot unLot : lesLots) {
+            System.out.println("Lot : " + unLot.getId());
+        }
+    }
+    
+    public void requeteTreize(){
+        /******************* requete treize *****************/
+        Query q1 = em.createNamedQuery("Projet.dureeEstimeProjetEnCours");
+        List<String> lesLots = q1.getResultList();
+        for ( String unLot : lesLots) {
+            System.out.println("Duree estime des lot d'un projet en cours : " + unLot);
+        }
+    }
+    
+    /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    public void requeteQuatorze(){
+        /****************** requete quatoze *************************/
+        Query q1 = em.createNamedQuery("Projet.avacementsTypeLots");
+        
+        
+        List<Object[]> lesLots = q1.getResultList();
+        
+        lesLots.stream().forEach((result)->{
+          String avancement = (String) result[0];
+          String nom = (String) result[1];
+            System.out.println("Avancemùent de l'entreprise: "+nom+" ->"+avancement);
+        });
+        
+    }
+    
+    public void requeteUn(){
+        /********* Requete Un *****************/
+        /********* passer ok *******************/
+        Query q1 = em.createNamedQuery("Entreprise.findEnt");
+        List<Entreprise> lesEntreprises = q1.getResultList();
+        for ( Entreprise uneEntreprise : lesEntreprises) {
+            System.out.println("Entreprise : " + uneEntreprise.getNom());
+        }
+    }
+    
+    public void requeteCinque(){
+        /*************** requete cinque ******************/
+        Query q1 = em.createNamedQuery("Entreprise.nbPlombier");
+        List<Entreprise> lesEntreprises = q1.getResultList();
+        for ( Entreprise uneEntreprise : lesEntreprises) {
+            System.out.println("Entreprise de plomberie: " + uneEntreprise.getNom());
+        }
+    }
+    
+    public void requeteSix(){
+        //************* requete six **************/
+        Query q1 = em.createNamedQuery("Entreprise.contactsGeneralBatiment");
+        List<Acteur> lesActeurs = q1.getResultList();
+        for ( Acteur unActeur : lesActeurs) {
+            System.out.println("Aceut de general Batiment: " + unActeur.getNom());
+        }
+    }
+    
+    public void requeteDouze(){
+        //////************************ requete douze**********************/
+        Query q1 = em.createNamedQuery("Musee.entMenuiserie");
+        List<Entreprise> lesEntreprises = q1.getResultList();
+        for ( Entreprise uneEntreprise : lesEntreprises) {
+            System.out.println("Entreprise de menuiserie pour un projet musee: " + uneEntreprise.getNom()+" adresse" + uneEntreprise.getAdresse().getRue()+" " +uneEntreprise.getAdresse().getVille());
+        }
+    }
+    
+    public void requeteQuatre(){
+         /***************** requete quatre *************************/
+        Query q1 = em.createNamedQuery("EtablissementScolaire.nbProjet");
+        Long nbLot = (Long) q1.getSingleResult();
+        System.out.println("Nombre de lot de d'etablissement scolaire : " + nbLot);
+    }
+}
